@@ -1,0 +1,120 @@
+@charset "utf-8";
+
+body{
+    background: linear-gradient( to bottom, #0011d0, #17a1fa);
+
+}
+
+.titulo{
+    display: flex;
+    align-items: center;     
+    justify-content: center;
+
+    margin-bottom: 10px;
+
+}
+
+.tarjetaMadre{
+    display: flex;
+    align-items: center;     
+    justify-content: center;
+}
+
+.tarjeta{
+    background-color: #a1c8e2;
+
+    display:flex;
+
+    flex-direction:column;
+
+    display:inline-block;
+
+    justify-content:space-between;
+
+    width:300px;
+
+    border: 1px solid lightgray;
+
+    box-shadow: 2px 2px 8px 4px #d3d3d3d1;
+
+    border-radius:15px;
+
+    font-family: sans-serif;
+    
+    margin: 50px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+}
+
+.tituloT{
+
+    font-size: 24px;
+
+    padding: 10px 10px 0 10px;;
+
+    
+    display: flex;
+    align-items: center;     
+    justify-content: center;
+
+}
+
+.cuerpo{
+
+    padding: 10px;
+
+    border-color: black;
+
+}
+
+.pie{
+
+    background: #6699ff;
+
+    border-radius:0 0 15px 15px;
+
+    padding: 10px;
+
+    text-align:center;
+
+}
+.pie a{
+
+    background-color: #a1c8e2;
+    
+    height: 30px;
+
+    text-decoration: none;
+    
+    color: black;
+
+}
+.pie a:after {
+
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    left: 0;
+
+    z-index: 1;
+
+    content: ""
+
+}
+.pie button{  /* ESTE SERIA PROVISIONAL HASTA QUE SE PUEDA UASAR LOS LINK DE INICIO SIN PROBLEMAS */
+
+    background-color: #a1c8e2;
+    
+    height: 30px;
+
+    text-decoration: none;
+
+    color: black;
+
+}
