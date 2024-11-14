@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <form action="perdirOVerVacacionesEmpleado.php" method="post">
+    <form action="perdirOVerVacaciones.php" method="post">
         <button type="submit">Volver Atras</button>
     </form>
 <script>

@@ -34,7 +34,7 @@ if (isset($_POST['email']) && isset($_POST['clave'])) {
             if (password_verify($Clave, $row['clave'])) {
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['id_empleado'] = $row['id_empleado'];
-                header("Location: perdirOVerVacacionesEmpleado.php");
+                header("Location: perdirOVerVacaciones.php");
                 exit();
             } else {
                 header("Location: inicioEmpleado.php?error=El Usuario o la Clave son incorrectas");
