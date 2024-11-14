@@ -1,66 +1,52 @@
 <?php
-    session_start();            // Todo listo aca
-    include('ConexionBD.php');
+session_start();
+include('ConexionBD.php');
 
-    if (isset($_POST['email']) && isset($_POST['clave']) ) {
-        function validate($data){
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
-        }
+if (isset($_POST['email']) && isset($_POST['clave'])) {
+    function validate($data) {
+        $data = trim($data); // Eliminar espacios en blanco
+        $data = stripslashes($data); // Eliminar barras
+        $data = htmlspecialchars($data); // Convertir caracteres especiales a entidades HTML
+        return $data;
+    }
 
-        $Empleado = validate($_POST['email']);
-        $Clave = validate($_POST['clave']);
+    $Empleado = validate($_POST['email']);
+    $Clave = validate($_POST['clave']);
 
-        $ip = $_SERVER['REMOTE_ADDR'];
-        $captcha = $_POST['g-recaptcha-response'];
-        $secretKey ="6Lfm7lUqAAAAAGyD4MVXCXmhOp9plTjDIpN6AJSP";
+    // Verificar que los campos no estén vacíos
+    if (empty($Empleado)) {
+        header("Location: inicioEmpleado.php?error=El Mail es requerido");
+        exit();
+    } elseif (empty($Clave)) {
+        header("Location: inicioEmpleado.php?error=La Clave es requerida");
+        exit();
+    } else {
+        // Usar consultas preparadas para evitar inyecciones SQL
+        $sql = "SELECT * FROM empleados WHERE email = ?";
+        $stmt = $conexion->prepare($sql);
+        $stmt->bind_param("s", $Empleado);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
 
-        $respuesta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha&remoteip=$ip");
-
-        $atributos = json_decode($respuesta, true);
-
-        if(!$atributos['success']){
-            header("Location: inicioEmpleado.php?error=Verificar captcha");
-            exit();
-        }
-        elseif (empty($Empleado)) {
-            header("Location: inicioEmpleado.php?error=El Mail es requerido");
-            exit();
-        }
-        elseif (empty($Clave)) {
-            header("Location: inicioEmpleado.php?error=La Clave es requerida");
-            exit();
-        }
-        else{
-
-            $sql = "SELECT * FROM empleados WHERE email = '$Empleado' AND clave = '$Clave'";
-            $resultado = mysqli_query($conexion, $sql);
-
-            if (mysqli_num_rows($resultado) === 1) {
-                $row = mysqli_fetch_assoc($resultado);
-                if($row['email'] === $Empleado && $row['clave'] === $Clave){
-                    $_SESSION['email'] = $row['email'];
-                    $_SESSION['id_empleado'] = $row['id_empleado'];
-                    $_SESSION['email'] = $row['email'];
-                    header("Location: administrarVacaciones.php");
-                    exit();
-                }
-                else{
-                    header("Location: inicioEmpleado.php?error=El Usuario o la Clave son incorrectas");
-                    exit();
-                }
-            }
-            else{
+        if ($resultado->num_rows === 1) {
+            $row = $resultado->fetch_assoc();
+            // Verificar la contraseña
+            if (password_verify($Clave, $row['clave'])) {
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['id_empleado'] = $row['id_empleado'];
+                header("Location: perdirOVerVacacionesEmpleado.php");
+                exit();
+            } else {
                 header("Location: inicioEmpleado.php?error=El Usuario o la Clave son incorrectas");
                 exit();
             }
+        } else {
+            header("Location: inicioEmpleado.php?error=El Usuario o la Clave son incorrectas");
+            exit();
         }
     }
-    else{
-        header("Location: inicioEmpleado.php");
-        exit();
-    }
-
+} else {
+    header("Location: inicioEmpleado.php");
+    exit();
+}
 ?>
