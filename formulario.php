@@ -1,18 +1,17 @@
 <?php
     session_start();
     if (!isset($_SESSION['email'])) {
-        // Si no hay sesión iniciada, redirige al Inicio :)
         header("Location: index.php");
         exit();
     }
     ?>
 <!DOCTYPE html>
 <html lang="es">      
-<head>                      <!-- y darle diseño con el archivo .css -->
+<head>                    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedir Vacaciones</title>
-    <link rel="stylesheet" href="CSS/formulario.css">
+    <link rel="stylesheet" href="CSS/formularios.css">
     <script>
         function validarFechas() {
             const fechaA = new Date(document.getElementById("fechaA").value);
@@ -20,15 +19,15 @@
 
             if (fechaB <= fechaA) {
                 alert("La fecha final debe ser mayor que la fecha inicial.");
-                return false; // Detenemos el envío del formulario
+                return false; 
             }
 
-            return true; // Permitimos el envío del formulario si es válido
+            return true;
         }
     </script>
 </head>
 <body>
-    <form action="guardar.php" method="POST" onsubmit="return validarFechas();">
+    <form action="formularioBD.php" method="POST" onsubmit="return validarFechas();">
     <?php
             if (isset($_GET['uf'])) {
             ?>
@@ -49,19 +48,19 @@
         <input type="date" id="fechaA" name="fecha_inicio" required><br><br>
 
         <label for="fechaB">Fecha Final:</label>
-        <input type="date" id="fechaB" name="fecha_final" required><br><br>
-        <p>Tene en cuenta que la fecha final es la fecha de reincorporacion</p>
-        <!-- <button type="submit">Guardar Fechas</button> -->
-        <button type="submit" >Guardar</button>
+        <input type="date" id="fechaB" name="fecha_final" required><br>
+        <p>Tene en cuenta que la fecha final es la fecha de reincorporacion</p><br>
+
+        <button type="submit" >Guardar</button><br>
         
-
-        <form action="calendarioEmpleado.html" method="post">
-            <button type="submit" >Ver Calendario</button>
-        </form>
-        <form action="perdirOVerVacacionesEmpleado.php" method="post">
-            <button type="submit">Volver Atras</button>
-        </form>
-
+        <div class="botones">
+            <form action="calendarioAdmin.php">
+                <button type="submit" >Ver Calendario</button>
+            </form>
+            <form action="administrarVacaciones.php">
+                <button type="submit">Volver Atras</button>
+            </form>
+        </div>
 
 
 

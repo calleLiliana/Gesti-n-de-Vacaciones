@@ -1,6 +1,6 @@
 <?php
     session_start();            // Todo listo aca
-    include('Conexion.php');
+    include('ConexionBD.php');
 
     if (isset($_POST['email']) && isset($_POST['clave']) ) {
         function validate($data){
@@ -44,7 +44,7 @@
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['id_empleado'] = $row['id_empleado'];
                     $_SESSION['email'] = $row['email'];
-                    header("Location: perdirOVerVacacionesEmpleado.php");
+                    header("Location: administrarVacaciones.php");
                     exit();
                 }
                 else{

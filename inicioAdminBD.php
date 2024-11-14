@@ -1,7 +1,7 @@
 <?php
     session_start();   // Nos falta Terminar de dar los ultimos toques al codigo para iniciar como admin
 
-    include('Conexion.php');
+    include('ConexionBD.php');
 
     if (isset($_POST['email']) && isset($_POST['clave']) ) {
         function validate($data){
@@ -36,15 +36,15 @@
         }
         else{
 
-            $sql = "SELECT * FROM admin WHERE email = '$Admin' AND clave = '$Clave'";
+            $sql = "SELECT * FROM admin WHERE email = '$Admin'";
             $resultado = mysqli_query($conexion, $sql);
 
             if (mysqli_num_rows($resultado) === 1) {
                 $row = mysqli_fetch_assoc($resultado);
-                if($row['email'] === $Admin && $row['clave'] === $Clave){
+                if (password_verify($Clave, $row['clave'])) {
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['id_admin'] = $row['id_admin'];
-                    header("Location: perdirOVerVacacionesAdmin.php");
+                    header("Location: administrarVacaciones.php");
                     exit();
                 }
                 else{

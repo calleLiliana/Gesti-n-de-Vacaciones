@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">            <!-- Todo listo aca -->
+<html lang="en">   
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,18 +10,18 @@
     <header>
         <div class="back">
             <div class="menu-container">
-                <img class="logo" src="imagenes\YPF.png" alt="logoYPF">
-                <input type="checkbox" id="menu"> <!-- esto no entiendo para que es -->
+                <nav class="">
+                </nav>
+                <h1>ㅤㅤㅤㅤGESTION DE VACACIONES</h1>
                 <nav class="barra">
                     <ul>
-                        <a class="botonRegistrarse" href="registro.php">Registrarte</a></li>   
+                        <a class="botonRegistrarse" href="registro.php">Registrarte</a>   
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
     <div class="titulo">
-        <img class="imagenLogo" src="imagenes/imagenLogoRectangular.png" height="160px" alt="Y P F">
     </div>
     <div class="tarjetaMadre">
         <div class="tarjeta">

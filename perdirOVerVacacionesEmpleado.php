@@ -1,23 +1,32 @@
 <?php
     session_start();
     if (!isset($_SESSION['email'])) {
-        // Si no hay sesión iniciada, redirige al Inicio :)
         header("Location: index.php");
         exit();
     }
     ?>
     
 <!DOCTYPE html>
-<html lang="en">            <!-- se podria ver la imagen que pusimos pero el resto esta listo-->
-<head>
+<html lang="en">
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS\perdirOVerVacaciones.css">
     <title>Perdir o ver vacaciones</title>
 </head>
 <body>
+    <header>
+        <div class="back">
+            <div class="menu-container">
+                <nav>
+                </nav>
+                <h1>GESTION DE VACACIONES</h1>
+                <nav>
+                </nav>
+            </div>
+        </div>
+    </header>
     <div class="titulo">
-        <img class="imagenLogo" src="imagenes/imagenLogoRectangularConTexto2.png" height="160px" alt="Y P F">
     </div>
     <div class="tarjetaMadre">
         <div class="tarjeta">
@@ -40,11 +49,11 @@
             </div>
             <div class="cuerpo">
                 <center><img class="imagenTarjeta" src="imagenes/imagenCalendario.png" height="280px" alt="imagenCalendario"> <br>
-                Ingresa aqui para ver tu calendario.</center>
+                Ingresa aqui para revisar tu <br>calendario.</center>
             </div>
             <div class="pie">
-                <form action="calendarioEmpleado.html" method="post">
-                    <button type="submit">Ver tu calendario aqui.</button>
+                <form action="calendarioAdmin.php" method="post">
+                    <button type="submit">Revisar tu calendario aqui.</button>
                 </form>
             </div>
         </div>

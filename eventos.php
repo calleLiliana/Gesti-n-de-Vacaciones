@@ -2,8 +2,6 @@
 header('Content-Type: application/json');  //la cabecera que me va a indicar el contenido que va a devolver el json
  $pdo = new PDO("mysql:dbname=vacaciones_bd; host=127.0.0.1", "root", "");  // conectarme a la base de datos
 
-//include ('Conexion.php');
-
 
 $accion = (isset($_GET['accion']))?$_GET['accion']:'leer'; // la variable accion va a preguntar si hay un valor en la variable get 
 // y es diferente de vacio, va a asignar directamente ese valor a la variable accion, de lo contrario hay que poner la variable accion con el valor leer 
@@ -25,21 +23,10 @@ switch($accion){
             "end" => $_POST['end']
         )); 
 
-        // $respuesta = $sentenciaSQL ->execute(array(
-        //     "title" => $_POST['title'], 
-        //     "descripcion" => $_POST['descripcion'], 
-        //     "color" => '#AFAFAF', 
-        //     "textColor" => 'black',
-        //     "start" => $_POST['start'], 
-        //     "end" => $_POST['end']
-        // )); 
-
         echo json_encode($respuesta) ; // muestra true si la instruccion se pudo llevar a cabo 
         break; 
-    case 'eliminar': 
-        // instruccion de eliminar 
-        // echo "instruccion de eliminar "; 
-
+    case 'eliminar':    // instruccion de eliminar 
+                        // echo "instruccion de eliminar "; 
         $respuesta=false; 
         if(isset($_POST['id'])){ //hay algo en el id enviado al precionar eliminar? id != vacio
             $sentenciaSQL = $pdo->prepare("DELETE FROM eventos WHERE ID=:ID"); // : significa que es un valor remplazable
@@ -49,10 +36,8 @@ switch($accion){
 
 
         break; 
-    case 'modificar': 
-        // instruccion de modificar 
-        // echo "instruccion de modificar "; 
-
+    case 'modificar':   // instruccion de modificar 
+                        // echo "instruccion de modificar "; 
         $sentenciaSQL = $pdo->prepare("UPDATE eventos SET
         title=:title,
         descripcion=:descripcion, 
@@ -86,6 +71,4 @@ switch($accion){
      echo json_encode($resultado);  // convertir toda la informacion que me retorno la consulta a un formato json 
     break;
 }
-
-
 ?>

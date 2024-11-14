@@ -1,11 +1,11 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #22d3eb;
+    background: linear-gradient(#0011d0, #17a1fa);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0; /* Eliminar margen para centrar el contenido verticalmente */
+    margin: 0;
 }
 
 .tarjetaREGISTRO {
@@ -13,6 +13,14 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 310px;
     text-align: left;
+}
+
+.botones {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    gap: 118px; 
+    margin-top: 10px;
 }
