@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/moment.min.js"></script>
-    <link rel="stylesheet" href="css/fullcalendar.min.css">
-    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="CSS/fullcalendar.min.css">
+    <link rel="stylesheet" href="CSS/calendar.css">
     <script src="js/fullcalendar.min.js"></script>
     <script src="js/es.js"></script>
 
@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <form action="administrarVacaciones.php" method="post">
+    <form class = "a" action="administrarVacaciones.php" method="post">
         <button type="submit">Volver Atras</button>
     </form>
 <script>
@@ -50,7 +50,7 @@
                 $("#ModalEventos").modal(); // muestra el modal 
             }, 
 
-            events:'http://localhost/Gestion_de_vacaciones/eventos.php', 
+            events:'http://localhost/Gesti-n-de-Vacaciones/eventos.php', 
 
             eventClick: function(calEvent, jsEvent, view){
                 $('#tituloEvento').html(calEvent.title); 
@@ -80,46 +80,30 @@
 <!-- Modal(Agregar, Modificar, Eliminar) -->
 <div class="modal fade" id="ModalEventos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="tituloEvento"></h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <form id="eventForm">
-                <div class="form-group">
-                    <label for="txtId">Id:</label>
-                    <input type="text" id="txtId" name="txtId" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="txtFecha">Fecha inicio:</label>
-                    <input type="date" id="txtFecha" name="textFecha" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="txtFechaFin">Fecha fin:</label>
-                    <input type="date" id="txtFechaFin" name="textFecha" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="txtTitulo">Título:</label>
-                    <input type="text" id="txtTitulo" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="txtDescripcion">Descripción:</label>
-                    <textarea id="txtDescripcion" rows="3" class="form-control"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="txtColor">Color:</label>
-                    <input type="color" value="#ff0000" id="txtColor" class="form-control" />
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" id="btnAgregar" class="btn btn-success">Agregar</button>
-          <button type="button" id="btnModificar" class="btn btn-success">Modificar</button>
-          <button type="button" id="btnEliminar" class="btn btn-danger">Borrar</button> 
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="tituloEvento"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            
+                Id: <input type="text" id="txtId" name="txtId" /><br/>
+                Fecha: <input type="date" id="txtFecha" name="textFecha" /><br/>
+                Fecha Fin: <input type="date" id="txtFechaFin" name="textFechaFin" /><br/>
+            
+                Título: <input type="text" id="txtTitulo" height="490px"/> <br/>
+
+                Descripción: <textarea id="txtDescripcion" rows="3"></textarea> <br/>
+                Color: <input type="color" value="#ff0000" id="txtColor"> <br/>
+            
+            </div>
+            <div class="modal-footer">
+            <button type="button" id="btnAgregar" class="btn btn-success">Agregar</button>
+            <button type="button" id="btnModificar" class="btn btn-success">Modificar</button>
+            <button type="button" id="btnEliminar" class="btn btn-danger">Borrar</button> 
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
     </div> 

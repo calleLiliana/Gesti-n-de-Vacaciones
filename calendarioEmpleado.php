@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/moment.min.js"></script>
-    <link rel="stylesheet" href="css/fullcalendar.min.css">
-    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="CSS/fullcalendar.min.css">
+    <link rel="stylesheet" href="CSS/calendar.css">
     <script src="js/fullcalendar.min.js"></script>
     <script src="js/es.js"></script>
 
@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <form action="perdirOVerVacaciones.php" method="post">
+    <form class = "a" action="perdirOVerVacaciones.php" method="post">
         <button type="submit">Volver Atras</button>
     </form>
 <script>
@@ -50,7 +50,7 @@
                 $("#ModalEventos").modal(); // muestra el modal 
             }, 
 
-            events:'http://localhost/Gestion_de_vacaciones/eventos.php', 
+            events:'http://localhost/Gesti-n-de-Vacaciones/eventos.php', 
 
             eventClick: function(calEvent, jsEvent, view){
                 $('#tituloEvento').html(calEvent.title); 
@@ -79,7 +79,7 @@
 
 
 <!-- Modal(Agregar, Modificar, Eliminar) -->
-<div class="modal fade" id="ModalEventos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="ModalEventos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -105,7 +105,7 @@
             </div>           
         </div>
     </div> 
-  </div>
+</div> -->
 
 <!-- trabajar con los botones abm -->
 <script>

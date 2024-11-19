@@ -52,7 +52,7 @@
                 Ingresa aqui para revisar tu <br>calendario.</center>
             </div>
             <div class="pie">
-                <form action="calendarioAdmin.php" method="post">
+                <form action="calendarioEmpleado.php" method="post">
                     <button type="submit">Revisar tu calendario aqui.</button>
                 </form>
             </div>

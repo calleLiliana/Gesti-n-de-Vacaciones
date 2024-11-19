@@ -54,10 +54,10 @@
         <button type="submit" >Guardar</button><br>
         
         <div class="botones">
-            <form action="calendarioAdmin.php">
+            <form action="calendarioEmpleado.php">
                 <button type="submit" >Ver Calendario</button>
             </form>
-            <form action="administrarVacaciones.php">
+            <form action="perdirOVerVacaciones.php">
                 <button type="submit">Volver Atras</button>
             </form>
         </div>

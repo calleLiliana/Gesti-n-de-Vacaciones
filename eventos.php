@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');  //la cabecera que me va a indicar el contenido que va a devolver el json
- $pdo = new PDO("mysql:dbname=vacaciones_bd; host=127.0.0.1", "root", "");  // conectarme a la base de datos
+$pdo = new PDO("mysql:dbname=vacaciones_bd; host=127.0.0.1", "root", "");  // conectarme a la base de datos
 
 
 $accion = (isset($_GET['accion']))?$_GET['accion']:'leer'; // la variable accion va a preguntar si hay un valor en la variable get 
